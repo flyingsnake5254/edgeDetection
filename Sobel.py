@@ -1,4 +1,4 @@
-from PIL import Image, ImageOps, ImageFilter
+from PIL import Image, ImageOps
 import numpy as np
 import math
 
@@ -31,12 +31,9 @@ def getG(left , right , top , bottom):
         return 255
     return 0
 
-# path = "D:\\arthur.jpg"
-# path = "D:\\agatha2.png"
-# path = "D:\\car1.jpg"
+
 path = 'D:\\school2.jpg'
-# path = 'D:\\conan2.jpg'
-# path = 'D:\\bike.jpg'
+
 img = Image.open(path)
 grayimg = ImageOps.grayscale(img)
 
