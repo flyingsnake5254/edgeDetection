@@ -25,7 +25,11 @@ def getGy(top , bottom):
 
 def getG(left , right , top , bottom):
     G = math.sqrt((getGx(left , right) ** 2 + getGy(top , bottom) ** 2))
-    return G
+
+    #set threshold
+    if G > threshold:
+        return 255
+    return 0
 
 
 path = 'D:\\school2.jpg'
@@ -47,10 +51,6 @@ for i in range(len(mask) // 2, grayarr.shape[0] - len(mask) // 2):
         grayarrX[i][j] = getGx(left , right)
         grayarrY[i][j] = getGy(top , bottom)
         grayarrG[i][j] = getG(left , right , top , bottom)
-
-grayarrX = (grayarrX * (255 / grayarrX.max())).astype(int)
-grayarrY = (grayarrY * (255 / grayarrY.max())).astype(int)
-grayarrG = (grayarrG * (255 / grayarrG.max())).astype(int)
 
 imgX = Image.fromarray(grayarrX)
 imgY = Image.fromarray(grayarrY)
