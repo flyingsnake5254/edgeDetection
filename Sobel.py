@@ -32,7 +32,7 @@ def getG(left , right , top , bottom):
     return 0
 
 
-path = 'D:\\school2.jpg'
+path = 'D:\\lu2.jpg'
 
 img = Image.open(path)
 grayimg = ImageOps.grayscale(img)
@@ -40,9 +40,11 @@ grayimg = ImageOps.grayscale(img)
 grayarr = np.array(grayimg)
 grayarrX = np.array(grayimg)
 grayarrY = np.array(grayimg)
-grayarrG = np.array(grayimg)
+grayarrG = np.array(grayimg
+                    )
 for i in range(len(mask) // 2, grayarr.shape[0] - len(mask) // 2):
     for j in range(len(mask) // 2, grayarr.shape[1] - len(mask) // 2):
+
         left = np.array([grayarr[i - 1][j - 1],grayarr[i][j - 1],grayarr[i + 1][j - 1]])
         right = np.array([grayarr[i - 1][j + 1],grayarr[i][j + 1],grayarr[i + 1][j + 1]])
         top = np.array([grayarr[i - 1][j - 1], grayarr[i - 1][j], grayarr[i - 1][j + 1]])
