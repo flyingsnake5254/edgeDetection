@@ -14,7 +14,7 @@ pipeline {
                 script {
                     withSonarQubeEnv('local_sonarqube') {
                         // 在这里，我们假设你已经在你的环境中安装了 SonarScanner 并且在 PATH 中
-                        sh 'sonar-scanner'
+                        sh '/opt/sonar-scanner/bin/sonar-scanner'
                     }
                 }
             }
