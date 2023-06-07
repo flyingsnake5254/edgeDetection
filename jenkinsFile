@@ -1,7 +1,12 @@
 pipeline {
-    agent any
+    agent {
+    	node {
+    		label 'agent'
+    	}
+    }
 
     stages {
+    
         stage('SCM') {
             steps {
                 // 这个步骤 Jenkins 会自动执行，因为我们已经在配置中指定了 Git URL
