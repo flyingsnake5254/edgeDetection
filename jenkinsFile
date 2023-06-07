@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM') {
+            steps {
+                // 这个步骤 Jenkins 会自动执行，因为我们已经在配置中指定了 Git URL
+            }
+        }
+
+        stage('SonarQube analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv('local_sonarqube') {
+                        // 在这里，我们假设你已经在你的环境中安装了 SonarScanner 并且在 PATH 中
+                        sh 'sonar-scanner'
+                    }
+                }
+            }
+        }
+    }
+}
+
